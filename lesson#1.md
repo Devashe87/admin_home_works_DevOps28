@@ -15,12 +15,11 @@
 	* `vagrant suspend` выключит виртуальную машину с сохранением её состояния — т. е. при следующем `vagrant up` будут запущены все процессы внутри, которые работали на момент вызова suspend, `vagrant halt` выключит виртуальную машину штатным образом.
 
 - По инструкции не полкчилось, скачал файл образа вручную
-    vagrant add box my-box "download_name_file"
-    vagrant init
-    vim Vagrantfile
-	  chenge config.vm.box "download_name_file"
-
-    vagrant up
+- vagrant add box my-box "download_name_file"
+- vagrant init
+- vim Vagrantfile
+- chenge config.vm.box "download_name_file"
+- vagrant up
 
 1. Изучите графический интерфейс VirtualBox, посмотрите, как выглядит виртуальная машина, которую создал для вас Vagrant, какие аппаратные ресурсы она выделила. Определите, какие ресурсы выделены по умолчанию.
 
