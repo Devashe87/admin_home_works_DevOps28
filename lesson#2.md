@@ -8,7 +8,7 @@
 $ type cd
 cd is a shell builtin
 ```
-3. Какая альтернатива без pipe для команды `grep <some_string> <some_file> | wc -l`?   
+2. Какая альтернатива без pipe для команды `grep <some_string> <some_file> | wc -l`?   
 
 	<details>
 	<summary>Подсказка.</summary>
@@ -18,7 +18,9 @@ cd is a shell builtin
 	</details>
 	
 	Изучите [документ](http://www.smallo.ruhr.de/award.html) о других подобных некорректных вариантах использования pipe.
-
+```
+wc -l < <(<some_string> <some_file>)
+```
 
 3. Какой процесс с PID `1` является родителем для всех процессов в вашей виртуальной машине Ubuntu 20.04?
 4. Как будет выглядеть команда, которая перенаправит вывод stderr `ls` на другую сессию терминала?
