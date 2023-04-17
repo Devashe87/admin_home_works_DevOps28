@@ -19,7 +19,7 @@ cd is a shell builtin
 	
 	Изучите [документ](http://www.smallo.ruhr.de/award.html) о других подобных некорректных вариантах использования pipe.
 ```
-wc -l < <(<some_string> <some_file>)
+grep <some string> <some file> -c
 ```
 
 3. Какой процесс с PID `1` является родителем для всех процессов в вашей виртуальной машине Ubuntu 20.04?
