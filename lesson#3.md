@@ -8,6 +8,7 @@
 
     Вам нужно найти тот единственный, который относится именно к `cd`. Обратите внимание, что `strace` выдаёт результат своей работы в поток stderr, а не в stdout.
 ```
+Ответ:
 vagrant@vagrant:~$ strace bash -c 'cd /tmp/'
 execve("/usr/bin/bash", ["bash", "-c", "cd /tmp/"], 0x7ffe28380910 /* 23 vars */) = 0
 brk(NULL)                               = 0x561bc3273000
