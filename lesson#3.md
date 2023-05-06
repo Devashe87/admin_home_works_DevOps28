@@ -87,11 +87,59 @@ PID    COMM               FD ERR PATH
     Есть ли смысл использовать в bash `&&`, если применить `set -e`?
 ```
 Ответ:
- - ";" позволяет выполнить несколько команд независимо от их результатов, тогда как использование "&&" гарантирует выполнение только при успешном завершении предыдущей     команды.
+ - ";" позволяет выполнить несколько команд независимо от их результатов, тогда как использование "&&" гарантирует выполнение только при успешном завершении предыдущей команды.
  - не имеет смысла т.к. "set -e" завершит сессию в случае безуспешного выполнения команды.
 ```
 8. Из каких опций состоит режим bash `set -euxo pipefail`, и почему его хорошо было бы использовать в сценариях?
+```
+Ответ:
+"e" - остановить выполнение сценария, если какая-либо команда завершится с ненулевым статусом (например, ошибка в сценарии)
+"u" - остановить выполнение сценария, если используется неустановленная переменная
+"x" - выводить на экран все команды, которые будут выполняться в сценарии (включая значения переменных и другую отладочную информацию)
+"o pipefail" - остановить выполнение сценария, если любая команда в конвейере завершится с ненулевым статусом.
+Использование режима set -euxo pipefail в сценариях помогает быстро обнаруживать и исправлять ошибки в сценариях, что может значительно ускорить разработку и поддержку сценариев.
+```
+9. Используя `-o stat` для `ps`, определите, какой наиболее часто встречающийся статус у процессов в системе. В `man ps` изучите (`/PROCESS STATE CODES`), что значат дополнительные к основной заглавной букве статуса процессов. Его можно не учитывать при расчёте (считать S, Ss или Ssl равнозначными).
+```
+Ответ:
+Самый частый
+vagrant@vagrant:~$ ps -Ao stat  | sort | uniq -c | sort -nr
+     51 I<
+     42 S
+     16 Ss
+      9 Ssl
+      7 I
+      6 S<
+      4 Ss+
+      3 S+
+      2 SN
+      2 Sl
+      1 STAT
+      1 S<s
+      1 SLsl
+      1 R+
+_________
+PROCESS STATE CODES
+       Here are the different values that the s, stat and state output specifiers (header "STAT" or "S") will display to describe the state of a process:
 
-1. Используя `-o stat` для `ps`, определите, какой наиболее часто встречающийся статус у процессов в системе. В `man ps` изучите (`/PROCESS STATE CODES`), что значат дополнительные к основной заглавной букве статуса процессов. Его можно не учитывать при расчёте (считать S, Ss или Ssl равнозначными).
+               D    uninterruptible sleep (usually IO)
+               I    Idle kernel thread
+               R    running or runnable (on run queue)
+               S    interruptible sleep (waiting for an event to complete)
+               T    stopped by job control signal
+               t    stopped by debugger during the tracing
+               W    paging (not valid since the 2.6.xx kernel)
+               X    dead (should never be seen)
+               Z    defunct ("zombie") process, terminated but not reaped by its parent
 
+       For BSD formats and when the stat keyword is used, additional characters may be displayed:
+
+               <    high-priority (not nice to other users)
+               N    low-priority (nice to other users)
+               L    has pages locked into memory (for real-time and custom IO)
+               s    is a session leader
+               l    is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
+               +    is in the foreground process group
+
+```
 ----
