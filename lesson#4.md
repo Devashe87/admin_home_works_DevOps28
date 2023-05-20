@@ -64,7 +64,14 @@ vagrant@vagrant:/opt/node_exporter$
 ```
 
 2. Изучите опции node_exporter и вывод `/metrics` по умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
-
+```
+Ответ:
+--collector.cpu: Включает сбор метрик процессора (CPU).
+--collector.meminfo: Включает сбор метрик памяти (Memory).
+--collector.diskstats: Включает сбор метрик дисковой активности (Disk).
+--collector.netstat: Включает сбор метрик сетевой активности (Network).
+--collector.loadavg: Включает сбор метрик загрузки системы (System Load).
+```
 3. Установите в свою виртуальную машину [Netdata](https://github.com/netdata/netdata). Воспользуйтесь [готовыми пакетами](https://packagecloud.io/netdata/netdata/install) для установки (`sudo apt install -y netdata`). 
    
    После успешной установки:
