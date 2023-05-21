@@ -125,3 +125,43 @@ root           1  0.0  0.5 102644 11476 ?        Ss   19:20   0:01 /sbin/init
 
 7. Найдите информацию о том, что такое `:(){ :|:& };:`. Запустите эту команду в своей виртуальной машине Vagrant с Ubuntu 20.04 (**это важно, поведение в других ОС не проверялось**). Некоторое время всё будет плохо, после чего (спустя минуты) — ОС должна стабилизироваться. Вызов `dmesg` расскажет, какой механизм помог автоматической стабилизации.  
 Как настроен этот механизм по умолчанию, и как изменить число процессов, которое можно создать в сессии?
+```
+Ответ:
+Стабилизация системы:
+[  367.403425] cgroup: fork rejected by pids controller in /user.slice/user-1000.slice/session-1.scope
+```
+```
+По умолчанию настроено:
+root@vagrant:~# ulimit -a
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 7572
+max locked memory       (kbytes, -l) 65536
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 7572
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+```
+
+```
+Изменение
+Изменение максимального количества открытых файлов (file descriptors):
+ulimit -n <количество> устанавливает максимальное количество открытых
+
+Изменение максимального количества процессов:
+ulimit -u <количество> устанавливает максимальное количество процессов.
+
+Изменение максимального количества размера стека:
+ulimit -s <размер> устанавливает максимальный размер стека для каждого процесса.
+
+Для изменения на постоянной основе необходимо отредактировть файл:
+/etc/security/limits.conf
+```
