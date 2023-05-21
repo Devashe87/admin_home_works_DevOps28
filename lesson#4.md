@@ -28,6 +28,8 @@ User=node_exporter
 Group=node_exporter
 Type=simple
 ExecStart=/usr/bin/node_exporter
+KillMode=process
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
