@@ -111,7 +111,27 @@ vagrant@vagrant:~$ cat $log_file
 ### Ваш скрипт:
 
 ```bash
-???
+vagrant@vagrant:~$ ip_adresses=(192.168.0.1 173.194.222.113 87.250.250.242)
+vagrant@vagrant:~$ port=80
+vagrant@vagrant:~$ log_file=TEST.log
+vagrant@vagrant:~$ log_error=ERROR.log
+vagrant@vagrant:~$ num_retries=5
+vagrant@vagrant:~$ while ((1==1))
+> do
+>     for ip in ${ip_adresses[@]}
+>     do
+>         if nc -z -w1 $ip $port
+>         then
+>             result="$ip:$port - доступен"
+>         else
+>             result="$ip:$port - недоступен"
+>             echo $result >> $log_error
+>             exit 0
+>         fi
+>         echo $result >> $log_file
+>     done
+> done
+
 ```
 
 ---
