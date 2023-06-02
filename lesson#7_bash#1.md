@@ -63,7 +63,44 @@ done
 ### Ваш скрипт:
 
 ```bash
-???
+vagrant@vagrant:~$ ip_adresses=(192.168.0.1 173.194.222.113 87.250.250.242)
+vagrant@vagrant:~$ port=80
+vagrant@vagrant:~$ log_file=TEST3.log
+vagrant@vagrant:~$ num_retries=5
+vagrant@vagrant:~$ while ((1==1))
+> do
+>     for ip in ${ip_adresses[@]}
+>     do
+>         if nc -z -w1 $ip $port
+>         then
+>             result="$ip:$port - доступен"
+>         else
+>             result="$ip:$port - недоступен"
+>         fi
+>         echo $result >> $log_file
+>     done
+>     num_retries=$((num_retries - 1))
+>     if [ $num_retries -eq 0 ]
+>     then
+>         break
+>     fi
+> done
+vagrant@vagrant:~$ cat $log_file
+192.168.0.1:80 - недоступен
+173.194.222.113:80 - доступен
+87.250.250.242:80 - доступен
+192.168.0.1:80 - недоступен
+173.194.222.113:80 - доступен
+87.250.250.242:80 - доступен
+192.168.0.1:80 - недоступен
+173.194.222.113:80 - доступен
+87.250.250.242:80 - доступен
+192.168.0.1:80 - недоступен
+173.194.222.113:80 - доступен
+87.250.250.242:80 - доступен
+192.168.0.1:80 - недоступен
+173.194.222.113:80 - доступен
+87.250.250.242:80 - доступен
 ```
 
 ---
