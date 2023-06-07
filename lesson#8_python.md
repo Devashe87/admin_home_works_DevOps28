@@ -68,13 +68,28 @@ for result in result_os.split('\n'):
 ### Ваш скрипт:
 
 ```python
-???
+#!/usr/bin/env python3
+
+import os
+
+
+bash_command = ["cd ~/netology/sysadm-homeworks/admin_home_works_DevOps28*", "git status"]
+result_os = os.popen(' && '.join(bash_command)).read()
+#is_change = False
+for result in result_os.split('\n'):
+    if result.find('modified') != -1:
+        prepare_result = result.replace('\tmodified:   ', '')
+        print(os.path.abspath(result))
+#        break
+
 ```
 
 ### Вывод скрипта при запуске во время тестирования:
 
 ```
-???
+vagrant@vagrant:~/netology/sysadm-homeworks/admin_home_works_DevOps28$ python3 test.py
+/home/vagrant/netology/sysadm-homeworks/admin_home_works_DevOps28/      modified:   temp_test.txt
+/home/vagrant/netology/sysadm-homeworks/admin_home_works_DevOps28/      modified:   test.py
 ```
 
 ------
@@ -86,7 +101,7 @@ for result in result_os.split('\n'):
 ### Ваш скрипт:
 
 ```python
-???
+README.md
 ```
 
 ### Вывод скрипта при запуске во время тестирования:
