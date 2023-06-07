@@ -101,13 +101,89 @@ vagrant@vagrant:~/netology/sysadm-homeworks/admin_home_works_DevOps28$ python3 t
 ### Ваш скрипт:
 
 ```python
-README.md
+#!/usr/bin/env python3
+
+import os
+
+path = os.getcwd()+'/sysadm-homeworks' #путь к каталогу с репозиториям
+print("Выберите репозиторий: ")
+repo = os.listdir(path)
+num_chois = 0
+repo_dict = {}
+for f in repo:
+    num_chois += 1
+    repo_dict[num_chois] = f
+    print(f"{num_chois}. {f}")
+
+last_point = num_chois + 1
+print(f"{last_point}. Ввести путь вручную")
+print(f"0. Введите для выхода ")
+
+user_chois = int(input("Введите номер репозитория: "))
+if user_chois == last_point:
+    repo_dict[last_point] = input("Введите путь к репозиторию: ")
+if user_chois == 0:
+    exit()
+user_repo = (f"{path}/{repo_dict[user_chois]}")
+
+
+
+bash_command = ["cd "+user_repo, "git status"]
+#print(bash_command)
+result_os = os.popen(' && '.join(bash_command)).read()
+#is_change = False
+print(f"Изменения в репозитории {user_repo}")
+for result in result_os.split('\n'):
+    if result.find('modified') != -1:
+        prepare_result = result.replace('\tmodified:   ', '')
+        print(os.path.abspath(prepare_result))
+#        break
+
 ```
 
 ### Вывод скрипта при запуске во время тестирования:
 
 ```
-???
+vagrant@vagrant:~/netology$ pwd
+/home/vagrant/netology
+vagrant@vagrant:~/netology$ ls -lh
+total 12K
+drwxrwxr-x 5 vagrant vagrant 4.0K Jun  7 15:03 sysadm-homeworks
+-rw-rw-r-- 1 vagrant vagrant 1.2K Jun  7 18:14 temp.py
+-rw-rw-r-- 1 vagrant vagrant  383 Jun  7 14:04 test.py
+vagrant@vagrant:~/netology$ python3 temp.py
+Выберите репозиторий:
+1. devops_test
+2. test_1
+3. admin_home_works_DevOps28
+4. Ввести путь вручную
+0. Введите для выхода
+Введите номер репозитория: 1
+Изменения в репозитории /home/vagrant/netology/sysadm-homeworks/devops_test
+/home/vagrant/netology/README.md
+/home/vagrant/netology/new_word.txt
+/home/vagrant/netology/test.md
+/home/vagrant/netology/test.py
+vagrant@vagrant:~/netology$ python3 temp.py
+Выберите репозиторий:
+1. devops_test
+2. test_1
+3. admin_home_works_DevOps28
+4. Ввести путь вручную
+0. Введите для выхода
+Введите номер репозитория: 3
+Изменения в репозитории /home/vagrant/netology/sysadm-homeworks/admin_home_works_DevOps28
+/home/vagrant/netology/temp_test.txt
+/home/vagrant/netology/test.py
+vagrant@vagrant:~/netology$ python3 temp.py
+Выберите репозиторий:
+1. devops_test
+2. test_1
+3. admin_home_works_DevOps28
+4. Ввести путь вручную
+0. Введите для выхода
+Введите номер репозитория: 0
+vagrant@vagrant:~/netology$
 ```
 
 ------
