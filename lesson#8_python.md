@@ -205,7 +205,56 @@ vagrant@vagrant:~/netology$
 ### Ваш скрипт:
 
 ```python
-???
+#!/usr/bin/env python3
+
+import os
+import socket
+import json
+
+
+file_path = '/home/vagrant/netology/original_hosts.txt'
+servers = ['drive.google.com', 'mail.google.com', 'google.com']
+
+
+def get_original_hosts(url, file_path):
+    hosts_ip = {}
+    if not os.path.exists(file_path):
+        with open(file_path, 'w') as file:
+            for f in servers:
+                hosts_ip[f] = socket.gethostbyname(f)
+            json.dump(hosts_ip, file)
+    return hosts_ip
+
+check_original_hosts = get_original_hosts(servers, file_path)
+
+def get_current_hosts_ip(url):
+    current_ip = {}
+    for f in servers:
+        current_ip[f] = socket.gethostbyname(f)
+    return current_ip
+
+current_ip = get_current_hosts_ip(servers)
+
+for f in current_ip:
+    print(f"{f} - {current_ip[f]}")
+
+
+def check_out(current_ip, file_path):
+    with open(file_path, 'r') as file:
+         original_url = json.load(file)
+    for f in original_url:
+        original = original_url[f]
+        current = socket.gethostbyname(current_ip[f])
+        if original != current:
+            print(f"[ERROR] {f} IP mismatch <{original}> <{current}>")
+            original_url[f] = current
+            update = True
+    if update:
+        with open(file_path, 'w') as file:
+            json.dump(original_url, file)
+
+
+check_out(current_ip, file_path)
 ```
 
 ### Вывод скрипта при запуске во время тестирования:
@@ -241,7 +290,12 @@ ___
 ### Ваш скрипт:
 
 ```python
-???
+vagrant@vagrant:~/netology$ python3 chek_socket.py
+drive.google.com - 173.194.73.194
+mail.google.com - 64.233.162.17
+google.com - 142.250.74.110
+[ERROR] drive.google.com IP mismatch <74.125.205.194> <173.194.73.194>
+[ERROR] mail.google.com IP mismatch <64.233.162.83> <64.233.162.17>
 ```
 
 ### Вывод скрипта при запуске во время тестирования:
