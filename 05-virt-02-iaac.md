@@ -57,7 +57,26 @@ Pull -  Узлы инфраструктуры запрашивают конфи�
 - [Vagrant](https://github.com/netology-code/devops-materials),
 - [Terraform](https://github.com/netology-code/devops-materials/blob/master/README.md),
 - Ansible.
+```
+devashe@Devashe87 vagrant % vagrant --version
+Vagrant 2.3.6
+devashe@Devashe87 vagrant % ansible --version
+ansible [core 2.15.0]
+  config file = /Users/devashe/netology/Vagrant/ansible.cfg
+  configured module search path = ['/Users/devashe/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /Users/devashe/Library/Python/3.10/lib/python/site-packages/ansible
+  ansible collection location = /Users/devashe/.ansible/collections:/usr/share/ansible/collections
+  executable location = /Users/devashe/Library/Python/3.10/bin/ansible
+  python version = 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] (/usr/local/bin/python3)
+  jinja version = 3.1.2
+  libyaml = True
+devashe@Devashe87 vagrant % terraform -version
+Terraform v1.4.6
+on darwin_amd64
 
+Your version of Terraform is out of date! The latest version
+is 1.5.0. You can update by downloading from https://www.terraform.io/downloads.html
+```
 *Приложите вывод команд установленных версий каждой из программ, оформленный в Markdown.*
 
 ## Задача 4 
@@ -68,6 +87,34 @@ Pull -  Узлы инфраструктуры запрашивают конфи�
 - Зайдите внутрь ВМ, убедитесь, что Docker установлен с помощью команды
 ```
 docker ps,
+vagrant@server1:~$ docker version
+Client: Docker Engine - Community
+ Version:           24.0.2
+ API version:       1.43
+ Go version:        go1.20.4
+ Git commit:        cb74dfc
+ Built:             Thu May 25 21:52:22 2023
+ OS/Arch:           linux/amd64
+ Context:           default
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          24.0.2
+  API version:      1.43 (minimum version 1.12)
+  Go version:       go1.20.4
+  Git commit:       659604f
+  Built:            Thu May 25 21:52:22 2023
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.6.21
+  GitCommit:        3dce8eb055cbb6872793272b4f20ed16117344f8
+ runc:
+  Version:          1.1.7
+  GitCommit:        v1.1.7-0-g860f061
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
 ```
 Vagrantfile из лекции и код ansible находятся в [папке](https://github.com/netology-code/virt-homeworks/tree/virt-11/05-virt-02-iaac/src).
 
