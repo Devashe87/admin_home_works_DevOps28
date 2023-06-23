@@ -139,8 +139,8 @@ vagrant@server1:~$ docker ps
 CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES
 a4e7bc7279e9   debian    "bash"        7 minutes ago    Up 7 minutes              debian-container
 2cd355373db5   centos    "/bin/bash"   12 minutes ago   Up 12 minutes             centos-container```
+```
 ## Задача 4 (*)
-
 Воспроизведите практическую часть лекции самостоятельно.
 
 Соберите Docker-образ с Ansible, загрузите на Docker Hub и пришлите ссылку вместе с остальными ответами к задачам.
