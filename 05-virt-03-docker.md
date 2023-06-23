@@ -46,8 +46,24 @@ Hey, Netology
 Опубликуйте созданный fork в своём репозитории и предоставьте ответ в виде ссылки на https://hub.docker.com/username_repo.
 ```
 Ответ:
+vagrant@server1:~$ docker run -d -p 80:80 devashe/nginx
+cef01301bfd99dc07dd1021cad05166531b557a8f37cabe5d081f1e9978be684
+vagrant@server1:~$ docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS         PORTS                               NAMES
+cef01301bfd9   devashe/nginx   "/docker-entrypoint.…"   8 seconds ago   Up 7 seconds   0.0.0.0:80->80/tcp, :::80->80/tcp   festive_cerf
+vagrant@server1:~$ curl http://localhost
+<html>
+<head>
+Hey, Netology
+</head>
+<body>
+<h1>I’m DevOps Engineer!</h1>
+</body>
+</html>
 
+vagrant@server1:~$ 
 ```
+(https://hub.docker.com/repository/docker/devashe87/netology_first_repo/general)
 ## Задача 2
 
 Посмотрите на сценарий ниже и ответьте на вопрос:
