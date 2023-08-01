@@ -38,6 +38,10 @@
 
 Чтобы получить зачёт, вам нужно предоставить вывод команды terraform apply и страницы свойств, созданной ВМ из личного кабинета YandexCloud.
 
+![#2](https://github.com/Devashe87/admin_home_works_DevOps28/blob/main/05-virt-04-docker-compose/%232.png)
+
+![#3](https://github.com/Devashe87/admin_home_works_DevOps28/blob/main/05-virt-04-docker-compose/%233.png)
+
 ## Задача 3
 
 С помощью Ansible и Docker Compose разверните на виртуальной машине из предыдущего задания систему мониторинга на основе Prometheus/Grafana.
