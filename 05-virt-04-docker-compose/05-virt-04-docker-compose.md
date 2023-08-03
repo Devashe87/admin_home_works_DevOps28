@@ -60,10 +60,9 @@
 
 Чтобы получить зачёт, предоставьте: 
 
-- скриншот работающего веб-интерфейса Grafana с текущими метриками, как на примере ниже.
-<p align="center">
-  <img width="1200" height="600" src="./assets/yc_02.png">
-</p>
+#
+
+![#5](https://github.com/Devashe87/admin_home_works_DevOps28/blob/main/05-virt-04-docker-compose/%235.png)
 
 ## Задача 5 (*)
 
