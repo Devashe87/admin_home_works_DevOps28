@@ -30,12 +30,59 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network & subnet name"
 }
+variable "env" {
+  type = string
+  default = "develop"
+}
+variable "project" {
+  type = string
+  default = "platform"
+}
+
+variable "role" {
+  default = ["web", "db"]
+}
+# variable "vm_web_family" {
+#   type = string
+#   default = "ubuntu-2004-lts"
+#   description = "Os version"
+# }
+
+# variable "vm_web_name" {
+#   type = string
+#   default = "netology-develop-platform-web"
+#   description = "vm web name"
+# }
+
+# variable "vm_web_platform_id" {
+#   type = string
+#   default = "standard-v1"
+#   description = "platform ID"
+# }
+
+# variable "vm_web_cores" {
+#   type = string
+#   default = "2"
+#   description = "cores"
+# }
+
+# variable "vm_web_memory" {
+#   type = string
+#   default = "1"
+#   description = "vm_web memory gb"
+# }
+
+# variable "vm_web_core_fraction" {
+#   type = string
+#   default = "5"
+#   description = "vm_web_core_fraction"
+# }
 
 
 ###ssh vars
 
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "<your_ssh_ed25519_key>"
-  description = "ssh-keygen -t ed25519"
-}
+# variable "vms_ssh_root_key" {
+#   type        = string
+#   default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjg5R2DrI4nddLRy7JQCJ0iI7eeFUdmsMPQCTD11eS6 devashe@Devashe87.local"
+#   description = "ssh-keygen -t ed25519"
+# }
