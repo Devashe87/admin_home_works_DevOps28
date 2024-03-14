@@ -1,0 +1,16 @@
+---
+clickhouse:
+  hosts:
+    clickhouse-01:
+      ansible_connection: ssh
+      ansible_ssh_user: centos
+      ansible_host: 178.154.222.130
+      ansible_private_key_file: ~/.ssh/centos7
+
+vector:
+  hosts:
+    vector-01:
+      ansible_connection: ssh
+      ansible_ssh_user: centos
+      ansible_host: 178.154.222.130
+      ansible_private_key_file: ~/.ssh/centos7
