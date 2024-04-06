@@ -41,7 +41,7 @@ Bug
 
 
 Other
-![#Other_waterfall](https://github.com/Devashe87/admin_home_works_DevOps28/blob/main/09-ci-01-intro/png/other.png)
+![#Other_waterfall](https://github.com/Devashe87/admin_home_works_DevOps28/blob/main/09-ci-01-intro/png/Other.png)
 ---
 
 ### Как оформить решение задания
