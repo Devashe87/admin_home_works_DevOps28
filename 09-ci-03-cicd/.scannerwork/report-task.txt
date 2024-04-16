@@ -1,0 +1,6 @@
+projectKey=My_first_project
+serverUrl=http://158.160.44.75:9000
+serverVersion=9.1.0.47736
+dashboardUrl=http://158.160.44.75:9000/dashboard?id=My_first_project
+ceTaskId=AY7nDsu8hVwqCff0LF3z
+ceTaskUrl=http://158.160.44.75:9000/api/ce/task?id=AY7nDsu8hVwqCff0LF3z
