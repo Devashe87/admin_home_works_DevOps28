@@ -11,6 +11,8 @@
 7.  Проверьте готовность Nexus через [бразуер](http://localhost:8081).
 8. Подключитесь под admin\admin123, поменяйте пароль, сохраните анонимный доступ.
 
+![Ansible](https://github.com/Devashe87/admin_home_works_DevOps28/blob/main/09-ci-03-cicd/PNG/ansible.png)
+
 ## Знакомоство с SonarQube
 
 ### Основная часть
@@ -24,6 +26,8 @@
 7. Исправьте ошибки, которые он выявил, включая warnings.
 8. Запустите анализатор повторно — проверьте, что QG пройдены успешно.
 9. Сделайте скриншот успешного прохождения анализа, приложите к решению ДЗ.
+
+![SonaQube](https://github.com/Devashe87/admin_home_works_DevOps28/blob/main/09-ci-03-cicd/PNG/sonarqube.png)
 
 ## Знакомство с Nexus
 
@@ -41,6 +45,10 @@
 3. Проверьте, что все файлы загрузились успешно.
 4. В ответе пришлите файл `maven-metadata.xml` для этого артефекта.
 
+![Nexus](https://github.com/Devashe87/admin_home_works_DevOps28/blob/main/09-ci-03-cicd/PNG/nexus.png)
+
+![metadata](https://github.com/Devashe87/admin_home_works_DevOps28/blob/main/09-ci-03-cicd/PNG/maven-metadata.xml)
+
 ### Знакомство с Maven
 
 ### Подготовка к выполнению
@@ -57,6 +65,8 @@
 2. Запустите команду `mvn package` в директории с `pom.xml`, ожидайте успешного окончания.
 3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.
 4. В ответе пришлите исправленный файл `pom.xml`.
+
+![Pom](https://github.com/Devashe87/admin_home_works_DevOps28/blob/main/09-ci-03-cicd/mvn/pom.xml)
 
 ---
 
